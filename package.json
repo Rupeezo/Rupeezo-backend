@@ -1,0 +1,25 @@
+{
+  "name": "rupeezo-backend-1",
+  "version": "1.0.0",
+  "description": "its rupeezo backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rupeezo/rupeezo-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rupeezo/rupeezo-backend/issues"
+  },
+  "homepage": "https://github.com/Rupeezo/rupeezo-backend#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "firebase-admin": "^13.4.0"
+  }
+}
