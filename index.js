@@ -15,6 +15,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 const app = express();
+// CORS Force Redeploy Comment - 2025-08-03 15:20:00
 
 // CORS Middleware को कॉन्फ़िगर करें
 const corsOptions = {
@@ -129,7 +130,7 @@ app.post('/earn', async (req, res) => {
                 console.warn(`Could not fetch email for userId ${userId}:`, authError.message);
             }
             await userRef.set({ balance: amount, email: userEmail, createdAt: admin.firestore.FieldValue.serverTimestamp() });
-            return res.status(201).json({ message: `उपयोगकर्ता बनाया गया और ${amount} अंक जोड़े गए।` });
+            return res.status(201).json({ message: `उपयोगकर्ता बनाया गया और ${amount} अंक जोड़े गए।`, newBalance: amount }); // newBalance जोड़ा गया
         } else {
             const currentBalance = doc.data().balance || 0; // सुनिश्चित करें कि 'balance' फ़ील्ड का उपयोग हो रहा है
             const newBalance = currentBalance + amount;
@@ -144,7 +145,7 @@ app.post('/earn', async (req, res) => {
                 source: 'Dummy'
             });
 
-            return res.status(200).json({ message: `${amount} अंक सफलतापूर्वक जोड़े गए! नया बैलेंस: ${newBalance}` });
+            return res.status(200).json({ message: `${amount} अंक सफलतापूर्वक जोड़े गए! नया बैलेंस: ${newBalance}`, newBalance: newBalance }); // newBalance जोड़ा गया
         }
     } catch (error) {
         console.error('अंक जोड़ने में त्रुटि:', error);
